@@ -53,7 +53,7 @@ beautiful.init("/home/andrew/.config/awesome/theme.lua")
 
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+terminal = "gnome-terminal"
 editor = "emacs"
 editor_cmd = terminal .. " -e " .. editor
 
