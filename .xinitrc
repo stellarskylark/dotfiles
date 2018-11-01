@@ -1,2 +1,2 @@
-nm-applet &
+sh -c "nm-applet &"
 compton -b
