@@ -340,6 +340,8 @@ you should place your code here."
 ;; Custom garbage
 (add-to-list 'auto-mode-alist '("\\.cl\\'" . lisp-mode))
 (add-hook 'lisp-mode-hook 'paredit-mode)
+(add-hook 'markdown-mode-hook 'auto-fill-mode)
+(add-hook 'text-mode-hook 'auto-fill-mode)
 
 (setq org-ref-default-bibliography '("~/Documents/homework/bibliography.bib"))
 
