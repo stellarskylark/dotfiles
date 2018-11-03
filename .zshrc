@@ -69,7 +69,7 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export PATH=$HOME/bin:$HOME/anaconda3/bin:/usr/local/texlive/2018/bin/x86_64-linux:$HOME/scripts:$PATH
+export PATH=$HOME/.local/bin:$HOME/anaconda3/bin:/usr/local/texlive/2018/bin/x86_64-linux:$HOME/scripts:$PATH
 export INFOPATH=$INFOPATH:/usr/local/texlive/2017/texmf-dist/doc/info
 export MANPATH=$MANPATH:/usr/local/texlive/2017/texmf-dist/doc/man
 
@@ -105,6 +105,7 @@ alias python="python3"
 alias pip="pip3"
 alias cleanlatex="rm *.log *.aux *.bbl *.bcf *.blg *.run.xml"
 alias testawesome="Xephyr :5 & sleep 1 ; DISPLAY=:5 awesome"
+alias suspend="xtrlock -b &; systemctl suspend"
 
 # Custom functions
 addppa() {
