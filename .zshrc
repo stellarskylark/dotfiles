@@ -103,7 +103,7 @@ alias uninstall="sudo apt remove"
 alias sl="ls"
 alias python="python3"
 alias pip="pip3"
-alias cleanlatex="rm *.log *.aux *.bbl *.bcf *.blg *.run.xml"
+alias cleanlatex="rm *.log; rm *.aux; rm *.bbl; rm *.bcf; rm *.blg; rm *.run.xml"
 alias testawesome="Xephyr :5 & sleep 1 ; DISPLAY=:5 awesome"
 alias suspend="xtrlock -b &; systemctl suspend"
 
