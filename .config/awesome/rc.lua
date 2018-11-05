@@ -22,6 +22,7 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 beautiful.pulse_icon_theme = "/usr/share/icons/Adwaita/scalable/devices/"
 local volume = require("awesome-wm-widgets.volume-widget.volume")
 local battery = require("awesome-wm-widgets.battery-widget.battery")
+local volume_bar = require("awesome-wm-widgets.volumebar-widget.volumebar")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -244,6 +245,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             volume,
+            volume_bar,
             mytextclock,
             battery,
             s.mylayoutbox,
