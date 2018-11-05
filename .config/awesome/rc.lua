@@ -20,7 +20,8 @@ local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 beautiful.pulse_icon_theme = "/usr/share/icons/Adwaita/scalable/devices/"
-local pulse = require("awesome-wm-widgets.volume-widget.volume")
+local volume = require("awesome-wm-widgets.volume-widget.volume")
+local battery = require("awesome-wm-widgets.battery-widget.battery")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -240,9 +241,10 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            volume_widget,
             wibox.widget.systray(),
+            volume,
             mytextclock,
+            battery,
             s.mylayoutbox,
         },
     }
