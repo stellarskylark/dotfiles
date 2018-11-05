@@ -38,7 +38,7 @@ theme.notification_shape = gsh.rounded_rect
 
 -- Make some things transparent
 theme.tooltip_opacity = 0.9
-theme.wibar_opacity = 0.7
+theme.wibar_opacity = 0.9
 theme.notification_opacity = 0.9
 
 -- There are other variable sets

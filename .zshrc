@@ -106,6 +106,7 @@ alias pip="pip3"
 alias cleanlatex="rm *.log; rm *.aux; rm *.bbl; rm *.bcf; rm *.blg; rm *.run.xml"
 alias testawesome="Xephyr :5 & sleep 1 ; DISPLAY=:5 awesome"
 alias suspend="xtrlock -b &; systemctl suspend"
+alias sml="rlwrap sml"
 
 # Custom functions
 addppa() {
