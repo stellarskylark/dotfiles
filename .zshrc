@@ -72,6 +72,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/.local/bin:$HOME/anaconda3/bin:/usr/local/texlive/2018/bin/x86_64-linux:$HOME/scripts:$PATH
 export INFOPATH=$INFOPATH:/usr/local/texlive/2017/texmf-dist/doc/info
 export MANPATH=$MANPATH:/usr/local/texlive/2017/texmf-dist/doc/man
+export STEAM_COMPAT_DATA_PATH=~/.steam/steam/steamapps/compatdata
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
