@@ -23,6 +23,10 @@ beautiful.pulse_icon_theme = "/usr/share/icons/Adwaita/scalable/devices/"
 local volume = require("awesome-wm-widgets.volume-widget.volume")
 local volume_bar = require("awesome-wm-widgets.volumebar-widget.volumebar")
 
+local weather = require("awesome-wm-widgets.weather-widget.weather")
+
+local json = require("json")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -52,11 +56,13 @@ end
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("/home/andrew/.config/awesome/theme.lua")
 
-
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
-editor = "emacs"
+terminal = "st"
+editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
+
+-- Autorun programs
+awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -246,6 +252,7 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.widget.systray(),
             volume,
             volume_bar,
+	    weather,
             mytextclock,
             s.mylayoutbox,
         },
