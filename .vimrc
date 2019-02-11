@@ -1,8 +1,5 @@
-" A minimal vimrc for new vim users to start with.
-"
-" Referenced here: http://vimuniversity.com/samples/your-first-vimrc-should-be-nearly-empty
-"
-" Original Author:	     Bram Moolenaar <Bram@vim.org>
+" A minimal vimrc for new vim users to start with.  " " Referenced here: http://vimuniversity.com/samples/your-first-vimrc-should-be-nearly-empty
+" " Original Author:	     Bram Moolenaar <Bram@vim.org>
 " Made more minimal by:  Ben Orenstein
 " Modified by :          Ben McCormick
 " Last change:	         2014 June 8
@@ -39,9 +36,11 @@ so ~/.vim/plugins.vim
 
 set laststatus=2
 
+set tabstop=2
+
 " Keybindings
 let mapleader = ","
-inoremap fd <esc>
+inoremap fd <esc>:w<cr>
 
 " Vimrc stuff
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
@@ -73,7 +72,19 @@ nnoremap <A-L> L
 nnoremap H 0
 nnoremap L $
 
+nnoremap <leader><space> /<++><cr>cf>
+
+" LaTeX commands
+autocmd FileType tex nnoremap <leader>c :call
+			\ system("pdflatex " . expand("%:t"))<CR>
+autocmd FileType tex nnoremap <leader>v :call
+			\ system("zathura " . expand("%:t:r") . ".pdf &")<CR>
+autocmd FileType tex nnoremap <leader>p i\usepackage{} <++><esc>F{a
+autocmd FileType tex nnoremap <leader>e i\begin{<+.>}<cr>\end{<+.>}<esc>0k/<+.><cr>cgn
 " Groff commands
-nnoremap <leader>c :!groff -mom expand("%:t") -Tpdf > expand("%:t:r") . ".pdf"<CR>
+autocmd FileType groff nnoremap <leader>c :call 
+			\system("pdfmom -R " . expand("%:t") . " > " . expand("%:t:r") . ".pdf")<CR>
+
+autocmd FileType groff nnoremap <leader>b i\*[BD] \*[ROM] <++><esc>2F]a
 
 let g:slimv_swank_cmd = '! tmux new-window -d -n REPL-SBCL "sbcl --load ~/.vim/bundle/slimv/slime/start-swank.lisp"'
