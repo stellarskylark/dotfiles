@@ -1,0 +1,28 @@
+#!/bin/bash
+
+BAT=$(cat /sys/class/power_supply/BAT0/capacity)
+STAT=$(cat /sys/class/power_supply/BAT0/status)
+baticon="🔋"
+batdangericon="⚠️"
+chargeicon="⚡"
+
+# Notify if battery gets below 20
+if [ $BAT -le 20 ] && [[ $(cat /tmp/batstatus) != "safe" ]]
+then 
+				echo "unsafe" > /tmp/batstatus
+				notify-send -u critical "Battery is below 20%"
+elif [ $BAT -gt 20 ]
+then
+				echo "safe" > /tmp/batstatus
+else
+				echo "nothing" > /dev/null
+fi
+
+[ $BAT -le 20 ] && [[ $STAT != "Charging" ]] &&
+  echo -e "$batdangericon$BAT% " && exit
+([[ $STAT == "Charging" ]] || [[ $STAT == "Not charging" ]]) &&
+  echo -e "$chargeicon$BAT% " && exit
+
+echo "$baticon$BAT% "
+
+exit 0

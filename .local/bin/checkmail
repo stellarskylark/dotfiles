@@ -1,0 +1,15 @@
+#!/bin/sh
+
+andrewkhill="$(ls $HOME/.local/share/mail/andrewkhill/INBOX/new | wc -l)"
+gmail="$(ls $HOME/.local/share/mail/gmail/INBOX/new | wc -l)"
+total=$(expr $andrewkhill + $gmail)
+[ "$total" -eq 0 ] &&
+  exit
+acc="("
+[ "$andrewkhill" -gt 0 ] &&
+  acc="${acc}A"
+[ "$gmail" -gt 0 ] &&
+  acc="${acc}G"
+acc="$acc)"
+
+echo "📬 $total $acc"

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+wget $1 -O /tmp/img
+sxiv /tmp/img
+rm /tmp/img

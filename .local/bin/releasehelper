@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cat /tmp/disownmsg
+eval "$(grep -o "kill -CONT -[0-9]*" /tmp/disownmsg)"
+rm /tmp/disownmsg

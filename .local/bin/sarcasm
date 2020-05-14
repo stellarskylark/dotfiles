@@ -1,0 +1,12 @@
+#!/bin/python
+import sys
+s = sys.argv[1]
+o = ""
+lower = True
+for ch in s:
+    if lower:
+        o += ch.lower()
+    else:
+        o += ch.upper()
+    lower = (not lower) if ch.isalpha() else lower
+print(o)

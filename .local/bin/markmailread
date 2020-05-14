@@ -1,0 +1,14 @@
+#!/bin/sh
+
+andrewkhill=$HOME/.local/share/mail/andrewkhill/INBOX
+gmail=$HOME/.local/share/mail/gmail/INBOX
+
+[ -z "$(ls "$andrewkhill"/new)" ] || 
+  for f in "$andrewkhill"/new/*
+  do mv "$f" "$(echo "$f,S" | sed "s/new/cur/")"
+  done
+[ -z "$(ls "$gmail"/new)" ] || 
+  for f in "$gmail"/new/*
+  do mv "$f" "$(echo "$f,S" | sed "s/new/cur/")"
+  done
+pkill -RTMIN+12 dwmblocks
