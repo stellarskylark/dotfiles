@@ -1,0 +1,4 @@
+#!/bin/sh
+fort=$(fortune -l)
+slock -m "$(figlet -w $(echo "$fort" | wc -L) -c LOCKED)
+$fort"

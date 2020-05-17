@@ -69,7 +69,7 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export PATH=$HOME/.gem/ruby/2.7.0/bin:.$HOME/.local/bin:$HOME/anaconda3/bin:/usr/local/texlive/2019/bin/x86_64-linux:$HOME/scripts:$PATH
+export PATH=$HOME/.local/bin:$HOME/.gem/ruby/2.7.0/bin:$HOME/anaconda3/bin:/usr/local/texlive/2019/bin/x86_64-linux:$HOME/scripts:$PATH
 export INFOPATH=$INFOPATH:/usr/local/texlive/2019/texmf-dist/doc/info
 export MANPATH=$MANPATH:/usr/local/texlive/2019/texmf-dist/doc/man
 export STEAM_COMPAT_DATA_PATH=~/.steam/steam/steamapps/compatdata
@@ -82,7 +82,7 @@ export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 
 # export DESKTOP="10.16.214.45"
 
-export BOK_DIR="$HOME/Documents/personal/journal"
+export BOK_DIR="$HOME/dox/personal/journal"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -131,3 +131,9 @@ overwriteplaylist() {
   mpc rm "$1"
   mpc save "$1"
 }
+
+PATH="/home/andrew/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/andrew/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/andrew/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/andrew/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/andrew/perl5"; export PERL_MM_OPT;

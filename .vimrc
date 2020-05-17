@@ -22,6 +22,12 @@ syntax on
 " Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
 
+" Lilypond mode
+filetype off
+set runtimepath+=/usr/local/share/lilypond/current/vim/
+filetype on
+syntax on
+
 " Show line numbers
 set number
 
@@ -84,9 +90,10 @@ autocmd FileType tex nnoremap <leader>v :call
 			\ system("zathura " . expand("%:t:r") . ".pdf &")<CR>
 autocmd FileType tex nnoremap <leader>p i\usepackage{} <++><esc>F{a
 autocmd FileType tex nnoremap <leader>en i\begin{<+.>}<cr>\end{<+.>}<esc>0k/<+.><cr>cgn
+
 " Groff commands
-autocmd FileType groff nnoremap <leader>c :call 
-			\system("pdfmom -R " . expand("%:t") . " > " . expand("%:t:r") . ".pdf")<CR>
+autocmd FileType groff nnoremap <leader>c :call
+			\ system("pdfmom -R " . expand("%:t") . " > " . expand("%:t:r") . ".pdf")<CR>
 
 autocmd FileType groff nnoremap <leader>b i\f[B]\f[I] <++><esc>2F]a
 autocmd FileType groff nnoremap <leader>v :call
@@ -94,3 +101,11 @@ autocmd FileType groff nnoremap <leader>v :call
 
 autocm FileType scheme nnoremap <leader>c :!
       \ racket -f expand("%:t") -i<CR>
+
+" Lilypond commands
+autocmd FileType lilypond nnoremap <leader>c :call
+      \ system("lilypond " . expand("%:t"))<CR>
+autocmd FileType lilypond nnoremap <leader>v :call
+      \ system("zathura " . expand("%:t:r") . ".pdf &")<CR>
+autocmd FileType lilypond nnoremap <leader>p :call
+      \ system("vlc " . expand("%:t:r") . ".midi")<CR>

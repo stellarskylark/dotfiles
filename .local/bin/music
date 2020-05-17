@@ -1,5 +1,5 @@
 #!/bin/sh
 playing=$(mpc status | grep -o "\[.*\]")
 [ -n "$(mpc current)" ] &&
-  ( ([ "$playing" = "[playing]" ] && echo "▶️ $(mpc status | grep -o '#[0-9]*/[0-9]*') $(mpc current)" ) ||
+  ( ([ "$playing" = "[playing]" ] && echo "▶ $(mpc status | grep -o '#[0-9]*/[0-9]*') $(mpc current)" ) ||
   ([ "$playing" = "[paused]" ] && echo "⏸️ $(mpc status | grep -o '#[0-9]*/[0-9]*') $(mpc current)"))

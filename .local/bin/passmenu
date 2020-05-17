@@ -1,3 +1,0 @@
-#!/bin/sh
-
-pass show $(pass ls | sed "s/[^a-zA-Z0-9\-]//g; 1d" | dmenu) -c
