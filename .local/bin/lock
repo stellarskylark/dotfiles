@@ -1,4 +1,5 @@
 #!/bin/sh
 fort=$(fortune -l)
+amixer -D pulse set Master 1+ mute && pkill -RTMIN+10 dwmblocks
 slock -m "$(figlet -w $(echo "$fort" | wc -L) -c LOCKED)
 $fort"

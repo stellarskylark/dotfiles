@@ -93,9 +93,10 @@ autocmd FileType tex nnoremap <leader>en i\begin{<+.>}<cr>\end{<+.>}<esc>0k/<+.>
 
 " Groff commands
 autocmd FileType groff nnoremap <leader>c :call
-			\ system("pdfmom -R " . expand("%:t") . " > " . expand("%:t:r") . ".pdf")<CR>
+			\ system("pdfmom -Rt " . expand("%:t") . " > " . expand("%:t:r") . ".pdf")<CR>
 
-autocmd FileType groff nnoremap <leader>b i\f[B]\f[I] <++><esc>2F]a
+autocmd FileType groff nnoremap <leader>b i\f[B]\f[R] <++><esc>2F]a
+autocmd FileType groff nnoremap <leader>i i\f[I]\f[R] <++><esc>2F]a
 autocmd FileType groff nnoremap <leader>v :call
 			\ system("zathura " . expand("%:t:r") . ".pdf &")<CR>
 
@@ -103,8 +104,7 @@ autocm FileType scheme nnoremap <leader>c :!
       \ racket -f expand("%:t") -i<CR>
 
 " Lilypond commands
-autocmd FileType lilypond nnoremap <leader>c :call
-      \ system("lilypond " . expand("%:t"))<CR>
+autocmd FileType lilypond nnoremap <leader>c :!lilypond %<CR>
 autocmd FileType lilypond nnoremap <leader>v :call
       \ system("zathura " . expand("%:t:r") . ".pdf &")<CR>
 autocmd FileType lilypond nnoremap <leader>p :call
