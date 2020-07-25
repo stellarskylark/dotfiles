@@ -7,7 +7,7 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -61,6 +61,7 @@ ZSH_THEME="agnoster"
 plugins=(
   git
   colored-man-pages
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -93,6 +94,7 @@ export EDITOR='vim'
 # else
 #   export EDITOR='mvim'
 # fi
+export BROWSER='waterfox-current'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -111,14 +113,15 @@ export EDITOR='vim'
 alias up="cd .."
 alias install="yay -S"
 alias uninstall="yay -R"
-alias update="yay -Syyu"
+alias update="yay -Syyu && pkill -RTMIN+3 dwmblocks"
 alias sl="ls"
 alias python="python3"
 alias pip="pip3"
 alias cleanlatex="rm *.log; rm *.aux; rm *.bbl; rm *.bcf; rm *.blg; rm *.run.xml"
-alias xclip="xclip -selection clipboard"
+alias copy="xclip -selection clipboard"
 alias neomutt="neomutt && pkill -SIGRTMIN+12 dwmblocks"
 alias newsboat="newsboat -q"
+alias doc2pdf="libreoffice --convert-to pdf"
 
 # Custom functions
 release() {
@@ -132,8 +135,25 @@ overwriteplaylist() {
   mpc save "$1"
 }
 
+ytallow () {
+  n=$(wc -l .cache/youtubewhitelist | grep -o "[0-9]*")
+  pluck allow $1
+  echo "$(expr $n + 1). $1 $2" >> ~/.cache/youtubewhitelist
+}
+
+ytsearch () {
+  grep -i $1 ~/.cache/youtubewhitelist
+}
+
+ytplay () {
+  $BROWSER "$(grep $1 ~/.cache/youtubewhitelist | sed "s/[0-9]*. //; s/ .*//")"
+}
+
 PATH="/home/andrew/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/andrew/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/andrew/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/andrew/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/andrew/perl5"; export PERL_MM_OPT;
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
