@@ -15,6 +15,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'w0rp/ale'
 Plugin 'wlangstroth/vim-racket'
 Plugin 'matze/vim-lilypond'
+Plugin 'dhruvasagar/vim-table-mode'
 
 call vundle#end()
 

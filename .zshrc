@@ -122,6 +122,7 @@ alias copy="xclip -selection clipboard"
 alias neomutt="neomutt && pkill -SIGRTMIN+12 dwmblocks"
 alias newsboat="newsboat -q"
 alias doc2pdf="libreoffice --convert-to pdf"
+alias clip="xclip -selection clipboard"
 
 # Custom functions
 release() {
@@ -133,20 +134,6 @@ release() {
 overwriteplaylist() {
   mpc rm "$1"
   mpc save "$1"
-}
-
-ytallow () {
-  n=$(wc -l .cache/youtubewhitelist | grep -o "[0-9]*")
-  pluck allow $1
-  echo "$(expr $n + 1). $1 $2" >> ~/.cache/youtubewhitelist
-}
-
-ytsearch () {
-  grep -i $1 ~/.cache/youtubewhitelist
-}
-
-ytplay () {
-  $BROWSER "$(grep $1 ~/.cache/youtubewhitelist | sed "s/[0-9]*. //; s/ .*//")"
 }
 
 PATH="/home/andrew/perl5/bin${PATH:+:${PATH}}"; export PATH;
