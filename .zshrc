@@ -116,7 +116,7 @@ alias sl="ls"
 alias python="python3"
 alias pip="pip3"
 alias cleanlatex="rm *.log; rm *.aux; rm *.bbl; rm *.bcf; rm *.blg; rm *.run.xml"
-alias xclip="xclip -selection clipboard"
+alias clip="xclip -selection clipboard"
 alias neomutt="neomutt && pkill -SIGRTMIN+12 dwmblocks"
 alias newsboat="newsboat -q"
 
@@ -130,6 +130,13 @@ release() {
 overwriteplaylist() {
   mpc rm "$1"
   mpc save "$1"
+}
+
+settimer() {
+  echo "Timer will expire at $(date "+%T" -d "$(echo $1 | sed "s/s/ seconds/;s/m/ minutes/;s/h/ hours/")")"
+  sleep "$1"
+  notify-send "Timer expired: ${*:2}"
+  mpv ~/.local/share/alarmtone.wav
 }
 
 PATH="/home/andrew/perl5/bin${PATH:+:${PATH}}"; export PATH;
