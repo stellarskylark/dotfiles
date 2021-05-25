@@ -7,7 +7,7 @@ batdangericon="⚠️"
 chargeicon="⚡"
 
 # Notify if battery gets below 20
-if [ $BAT -le 20 ] && [[ $(cat /tmp/batstatus) != "safe" ]]
+if [ $BAT -le 20 ] && [[ $(cat /tmp/batstatus) != "unsafe" ]]
 then 
 				echo "unsafe" > /tmp/batstatus
 				notify-send -u critical "Battery is below 20%"

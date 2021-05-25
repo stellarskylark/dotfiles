@@ -1,5 +1,6 @@
 #!/bin/sh
-fort=$(fortune -l)
-amixer -D pulse set Master 1+ mute && pkill -RTMIN+10 dwmblocks
+fort=$(fortune christian)
+[ -e $(pactl list sinks | grep Port: | grep -o speaker) ] ||
+  amixer -D pulse set Master 1+ mute && pkill -RTMIN+10 dwmblocks
 slock -m "$(figlet -w $(echo "$fort" | wc -L) -c LOCKED)
 $fort"

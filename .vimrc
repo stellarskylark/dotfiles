@@ -14,6 +14,8 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+set modeline
+
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
 
@@ -50,7 +52,7 @@ let mapleader = ","
 inoremap fd <esc>:w<cr>
 
 " Vimrc stuff
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>ev :tabedit $MYVIMRC<CR>
 nnoremap <leader>rv :source ~/.vimrc<CR>
 
 " NERDTree remaps
@@ -86,9 +88,10 @@ nnoremap <leader><space> /<++><cr>cf>
 " LaTeX commands
 autocmd FileType tex nnoremap <leader>c :call
 			\ system("pdflatex " . expand("%:t"))<CR>
+autocmd FileType tex nnoremap <leader>C :call
+			\ system("pdflatex " . expand("%:t") . "; biber " . expand("%:t:r") . "; pdflatex " . expand("%:t"))<CR>
 autocmd FileType tex nnoremap <leader>v :call
 			\ system("zathura " . expand("%:t:r") . ".pdf &")<CR>
-autocmd FileType tex nnoremap <leader>p i\usepackage{} <++><esc>F{a
 autocmd FileType tex nnoremap <leader>en i\begin{<+.>}<cr>\end{<+.>}<esc>0k/<+.><cr>cgn
 
 " Groff commands
@@ -107,5 +110,7 @@ autocm FileType scheme nnoremap <leader>c :!
 autocmd FileType lilypond nnoremap <leader>c :!lilypond %<CR>
 autocmd FileType lilypond nnoremap <leader>v :call
       \ system("zathura " . expand("%:t:r") . ".pdf &")<CR>
-autocmd FileType lilypond nnoremap <leader>p :call
-      \ system("vlc " . expand("%:t:r") . ".midi")<CR>
+autocmd FileType lilypond nnoremap <leader>p
+      \ :!mpv %:t:r.wav<CR>
+autocmd FileType lilypond nnoremap <leader>P
+      \ :!midi2audio %:t:r.midi %:t:r.wav && mpv %:t:r.wav<CR>
