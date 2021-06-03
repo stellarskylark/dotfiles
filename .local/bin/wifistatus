@@ -1,0 +1,3 @@
+#!/bin/sh
+
+netctl list | grep "[\+\*]" | sed "s/\*//; s/\+//;s/wlp2s0-//"
