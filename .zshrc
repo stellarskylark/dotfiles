@@ -101,7 +101,7 @@ export EDITOR='vim'
 # else
 #   export EDITOR='mvim'
 # fi
-export BROWSER='waterfox-current'
+export BROWSER='qutebrowser'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

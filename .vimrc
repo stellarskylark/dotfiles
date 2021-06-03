@@ -30,6 +30,10 @@ set runtimepath+=/usr/local/share/lilypond/current/vim/
 filetype on
 syntax on
 
+augroup filetypedetect
+  autocmd BufNew,BufNewFile,BufRead *.hoon :setfiletype hoon
+augroup END
+
 " Show line numbers
 set number
 

@@ -16,6 +16,7 @@ Plugin 'w0rp/ale'
 Plugin 'wlangstroth/vim-racket'
 Plugin 'matze/vim-lilypond'
 Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'urbit/hoon.vim'
 
 call vundle#end()
 
