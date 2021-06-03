@@ -1,0 +1,6 @@
+#!/bin/sh
+
+khal list
+echo "
+Todo:"
+todo list --no-reverse --due 720
