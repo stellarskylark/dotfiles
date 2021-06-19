@@ -1,6 +1,9 @@
 #!/bin/sh
 
+cal -3
+echo "
+Events:"
 khal list
 echo "
 Todo:"
-todo list --no-reverse --due 720
+todo list --sort due --no-reverse --due 720
