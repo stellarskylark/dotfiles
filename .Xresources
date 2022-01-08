@@ -1,0 +1,65 @@
+!! Colorscheme
+
+! special
+*.foreground: #e5e5e5
+*.background: #111111
+*.cursorColor: #cccccc
+
+! black
+*.color0:       #282a2e
+*.color8:       #373b41
+
+! red
+*.color1:       #a54242
+*.color9:       #cc6666
+
+! green
+*.color2:       #8c9440
+*.color10:      #b5bd68
+
+! yellow
+*.color3:       #de935f
+*.color11:      #f0c674
+
+! blue
+*.color4:       #5f819d
+*.color12:      #81a2be
+
+! magenta
+*.color5:       #85678f
+*.color13:      #b294bb
+
+! cyan
+*.color6:       #5e8d87
+*.color14:      #8abeb7
+
+! white
+*.color7:       #707880
+*.color15:      #c5c8c6
+
+!! URxvt Appearance
+URxvt.font: xft:MesloLGS NF:style=Regular:pixelsize=20:antialias=true:autohint=true
+URxvt.boldFont: xft:MesloLGS NF:style=Bold:pixelsize=20:antialias=true:autohint=true
+URxvt.italicFont: xft:MesloLGS NF:style=Italic:pixelsize=20:antialias=true:autohint=true
+URxvt.boldItalicfont: xft:MesloLGS NF:style=Bold Italic:pixelsize=20:antialias=true:autohint=true
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 24
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.depth: 32
+URxvt.iso14755: false
+URxvt.background: rgba:1111/1111/1111/bbbb
+
+!! Copy Paste & Other Extensions
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
